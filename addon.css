@@ -1,0 +1,327 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  background: #121212;
+  color: #eaeaea;
+}
+
+/* BACK */
+.back {
+  position: relative;
+  top: 28px;
+  display: inline-block;
+  margin-bottom: 30px;
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 14px;
+  background: #161616; /* transparan gelap */
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  font-weight: 500;
+}
+
+.back:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transform: translateY(-2px); /* efek naik sedikit saat hover */
+}
+
+
+/* LAYOUT */
+.addon-detail {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* HEADER */
+.addon-header {
+  margin-bottom: 20px;
+}
+
+.addon-header h1 {
+  margin: 0 0 6px;
+  font-size: clamp(22px, 4vw, 32px);
+}
+
+.badge {
+  position: relative;
+  top: -8px;
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 12px;
+  border: 1px solid #333;
+  border-radius: 999px;
+  color: #aaa;
+}
+
+/* BOX */
+.addon-box {
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #161616;
+}
+
+.addon-box h2 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+/* LIST */
+.addon-box ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.addon-box li {
+  margin-bottom: 6px;
+  color: #ccc;
+}
+
+/* ===== GLOBAL HEADER ===== */
+.global-header {
+  background: #1e1e1e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-top: 1px solid #2a2a2a
+  border: 1px solid #fff;
+  border-radius: 14px;
+}
+
+/* LOGO */
+.logo {
+  height: 32px;
+}
+
+/* ===== MENU BUTTON ===== */
+.menu-btn {
+  width: 28px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #aaa;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+/* ANIMATION TO X */
+.menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===== POPUP ===== *//* Container logo + username */
+.social-item {
+  display: flex;
+  align-items: center; /* vertical align tengah */
+  gap: 8px; /* jarak antara logo dan teks */
+  margin-bottom: 8px;
+}
+
+/* Logo */
+.global-popup img {
+  width: 32px;  /* ukuran logo */
+  height: 32px;
+  object-fit: contain; /* biar ga gepeng */
+  border-radius: 6px; /* optional biar agak membulat */
+}
+
+/* Username / teks */
+.global-popup span {
+  color: #eaeaea;
+  font-size: 14px;
+}
+
+
+
+
+.global-popup a {
+  text-decoration: none;
+  color: #eaeaea;
+  font-size: 14px;
+}
+
+.global-popup a:hover {
+  color: #fff;
+}
+
+/* SHOW */
+.global-popup.show {
+  display: flex;
+}
+
+/* ===== GLOBAL HEADER ===== */
+.global-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-top: 1px solid #2a2a2a;
+}
+
+/* LOGO */
+.logo {
+  height: 32px;
+}
+
+/* ===== MENU BUTTON ===== */
+.menu-btn {
+  width: 28px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #aaa;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+/* ANIMATION TO X */
+.menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===== POPUP ===== */
+.global-popup {
+  position: absolute;
+  top: 60px;
+  left: 16px;
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 12px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.global-popup a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  text-decoration: none;
+  color: #eaeaea;
+  font-size: 14px;
+}
+
+
+.global-popup a:hover {
+  color: #fff;
+}
+
+.social-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* SHOW */
+.global-popup.show {
+  display: flex;
+}
+
+
+.global-popup a {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
+.addon-image {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+}
+.addon-img {
+  width: auto;       /* sesuaikan lebar otomatis */
+  height: 32px;      /* batasi tinggi */
+  max-width: 100%;   /* jangan melebihi container */
+  object-fit: contain;
+}
+
+/* Khusus desktop */
+@media (min-width: 768px) {
+  .addon-img {
+    height: 24px;    /* lebih enak di desktop */
+  }
+}
+
+
+
+.addon-image img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.addon-link {
+  display: block;              /* biar full width */
+  width: 100%;                 /* isi lebar card */
+  padding: 12px 16px;          /* space dalam tombol */
+  background-color: #3a3a3a;   /* warna tombol */
+  color: #fff;                 /* teks putih */
+  text-decoration: none;       /* ilangin garis bawah */
+  border-radius: 8px;          /* sudut membulat */
+  text-align: center;          /* teks di tengah */
+  margin-bottom: 8px;          /* spasi antar tombol */
+  transition: background 0.2s;
+}
+
+.addon-link:hover {
+  background-color: #5a5a5a;
+}
+
+
+.addon-link:hover {
+  background-color: #5a5a5a;   /* hover efek */
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ========== ISI NAMA ADDON ========= -->
+  <title>Better XP</title>
+
+  <link rel="stylesheet" href="addon.css">
+</head>
+<body>
+
+<!-- ===== GLOBAL HEADER ===== -->
+<header class="global-header">
+
+  <!-- LEFT : MENU BUTTON -->
+  <button class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- RIGHT : LOGO -->
+  <img src="logo.png" alt="Logo" class="logo">
+
+</header>
+
+<!-- ===== GLOBAL POPUP MENU ===== -->
+<div class="global-popup" id="popup">  <a href="https://instagram.com/USERNAME" target="_blank">
+    <img src="assets/logos/instagram.png" class="social-icon">
+    @zeromaster_178
+  </a>
+
+  <a href="https://tiktok.com/@USERNAME" target="_blank">
+    <img src="assets/logos/tiktok.png" class="social-icon">
+    @zeromaster_178
+  </a>
+
+  <a href="https://youtube.com/@USERNAME" target="_blank">
+    <img src="assets/logos/youtube.png" class="social-icon">
+    @zeromaster178
+  </a>
+
+</div>
+
+  <!-- balik ke home -->
+  <a href="index.html" class="back">← Back</a>
+
+  <main class="addon-detail">
+
+    <!-- ========== ISI DATA ADDON ========= -->
+    <section class="addon-box">
+
+      <!-- NAMA ADDON -->
+      <h1>Better XP</h1>
+
+      <!-- TAG / PLATFORM -->
+      <span class="badge">Minecraft Bedrock</span>
+
+      <!-- DESKRIPSI -->
+      <p>
+        ISI DESKRIPSI ADDON DI SINI.
+        Jelasin singkat tapi jelas apa fungsi addon ini.
+      </p>
+
+    </section>
+
+    <!-- ========== INFO TEKNIS ========= -->
+    <section class="addon-box">
+
+      <h2>Addon Info</h2>
+
+      <ul>
+        <li><b>Version:</b> 1.0.0</li>
+        <li><b>Author:</b> Zero</li>
+        <li><b>Support:</b> 1.20+</li>
+        <li><b>Update:</b> 2025</li>
+      </ul>
+
+    </section>
+
+    <!-- ========== DOWNLOAD ========= -->
+    <section class="addon-box">
+
+      <h2>Download</h2>
+
+      <!-- GANTI LINK FILE -->
+      <a href="FILE_ADDON.mcaddon" class="download-btn">
+        Download Addon
+      </a>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+const popup = document.getElementById("popup");
+
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("active");
+  popup.classList.toggle("show");
+});
+
+/* optional: klik luar = nutup */
+document.addEventListener("click", (e) => {
+  if (!menuBtn.contains(e.target) && !popup.contains(e.target)) {
+    menuBtn.classList.remove("active");
+    popup.classList.remove("show");
+  }
+});
+</script>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ========== ISI NAMA ADDON ========= -->
+  <title>zero's 3d totem</title>
+  
+  <link rel="stylesheet" href="addon.css">
+</head>
+<body>
+
+<!-- ===== GLOBAL HEADER ===== -->
+<header class="global-header">
+
+  <!-- LEFT : MENU BUTTON -->
+  <button class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- RIGHT : LOGO -->
+  <img src="assets/logo.jpg" alt="Logo" class="logo">
+
+</header>
+
+<!-- ===== GLOBAL POPUP MENU ===== -->
+<div class="global-popup" id="popup">  <a href="https://instagram.com/USERNAME" target="_blank">
+    <img src="assets/ig.png" class="social-icon">
+    @zeromaster_178
+  </a>
+
+  <a href="https://tiktok.com/@USERNAME" target="_blank">
+    <img src="assets/tiktok.png" class="social-icon">
+    @zeromaster_178
+  </a>
+
+  <a href="https://youtube.com/@USERNAME" target="_blank">
+    <img src="assets/yt.png" class="social-icon">
+    @zeromaster178
+  </a>
+  
+      <a href="https://tiktok.com/@USERNAME" target="_blank">
+    <img src="assets/mcpedl.png" class="social-icon">
+    @zeromaster_178
+  </a>
+
+  <a href="https://youtube.com/@USERNAME" target="_blank">
+    <img src="assets/cf.png" class="social-icon">
+    @Zeromaster178
+  </a>
+
+</div>
+
+  <!-- balik ke home -->
+  <a href="index.html" class="back">← Back</a>
+
+  <main class="addon-detail">
+
+    <!-- ========== ISI DATA ADDON ========= -->
+    <section class="addon-box">
+
+      <!-- NAMA ADDON -->
+      <h1>zero's 3d totem</h1>
+
+      <!-- TAG / PLATFORM -->
+      <span class="badge">Minecraft Bedrock</span>
+
+      <!-- DESKRIPSI --> 
+      
+<div class="addon-image">
+  <img src="assets/1_1.jpg" alt="Addon Preview">
+</div>
+
+        
+      <p>Are you bored with the totem texture that is just like that? Then you see Java Player using 3D totem and then you also want to use it?, I got you!
+        </p>
+        
+                <img src="assets/1_2.jpg" alt="Descriptive Alt Text" class="addon-image">
+        <div class="text-below">right hand fpp</div>
+
+        <img src="assets/1_3.jpg" alt="Descriptive Alt Text" class="addon-image">
+        <div class="text-below">offhand fpp</div>
+
+        <img src="assets/1_4.jpg" alt="Descriptive Alt Text" class="addon-image">
+        <div class="text-below">armor stand perspectives</div>
+
+        <p>HOW TO PUT YOUR SKIN INTO THIS PACK;</p>
+        
+                <img src="assets/1_5.jpg" alt="Descriptive Alt Text" class="addon-image">
+                
+        <P>-FIRST, EXTRACT THE FILE,AND OPEN THE FILE, AND GO TO TEXTURES FOLDER</P>
+
+                <img src="assets/1_6.jpg" alt="Descriptive Alt Text" class="addon-image">
+                
+        <p>-SECOND, OPEN ENTITY FOLDER</p>
+        
+                <img src="assets/1_7.jpg" alt="Descriptive Alt Text" class="addon-image">
+                
+        <p>THIRD, PASTE YOUR TEXTURE HERE, AND RENAME IT "skin.png"</p
+        
+                <p>IF YOU WANT TO ADD CUSTOM ITEM TEXTURE, JUST CLICK LINK BELOW AND PUT YOUR ITEM TEXTURE IN "items" FOLDER</p>
+        
+                <img src="assets/1_8.jpg" alt="Descriptive Alt Text" class="addon-image">
+                 <img src="assets/1_9.jpg" alt="Descriptive Alt Text" class="addon-image">
+        
+
+
+    </section>
+
+    <!-- ========== INFO TEKNIS ========= -->
+    <section class="addon-box">
+
+      <h2>Addon Info</h2>
+
+      <ul>
+        <li><b>Version:</b> 1.0.0</li>
+        <li><b>Author:</b> Zeromaster178</li>
+        <li><b>Support:</b> 1.21+</li>
+        <li><b>release:</b> 2025</li>
+      </ul>
+
+    </section>
+
+    <!-- ========== DOWNLOAD ========= -->
+    <section class="addon-box">
+
+      <h2>Download</h2>
+
+      <!-- GANTI LINK FILE -->
+      <a href="FILE_ADDON.mcaddon" class="addon-link">
+        Download Addon
+      </a>
+      
+      
+      <a href="https://mcskins.top/skin-to-totem" class="addon-link" target="_blank">skin to totem item maker</a>
+
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+const popup = document.getElementById("popup");
+
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("active");
+  popup.classList.toggle("show");
+});
+
+/* optional: klik luar = nutup */
+document.addEventListener("click", (e) => {
+  if (!menuBtn.contains(e.target) && !popup.contains(e.target)) {
+    menuBtn.classList.remove("active");
+    popup.classList.remove("show");
+  }
+});
+</script>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addon Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body><!-- ===== GLOBAL HEADER ===== --><header class="global-header">  <!-- LEFT : MENU BUTTON (toggle popup menu) -->  <button class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>  <!-- RIGHT : LOGO WEBSITE -->  <img src="assets/logo.jpg" alt="Logo" class="logo"></header><!-- ===== POPUP MENU (SOCIAL LINKS) ===== --><div class="global-popup" id="popup">  <!-- Instagram -->  <a href="https://instagram.com/zeromaster_178" target="_blank">
+    <img src="assets/ig.png" class="social-icon" alt="Instagram">
+    @zeromaster_178
+  </a>  <!-- TikTok -->  <a href="https://tiktok.com/@Zeromaster_178" target="_blank">
+    <img src="assets/tiktok.png" class="social-icon" alt="TikTok">
+    @zeromaster_178
+  </a>  <!-- YouTube -->  <a href="https://youtube.com/@zeromaster178" target="_blank">
+    <img src="assets/yt.png" class="social-icon" alt="YouTube">
+    @zeromaster178
+  </a>  <!-- MCPEDL (placeholder, ganti link asli nanti) -->  <a href="https://tiktok.com/@USERNAME" target="_blank">
+    <img src="assets/mcpedl.png" class="social-icon" alt="MCPEDL">
+    @zeromaster_178
+  </a>  <!-- CurseForge (placeholder, ganti link asli nanti) -->  <a href="https://youtube.com/@USERNAME" target="_blank">
+    <img src="assets/cf.png" class="social-icon" alt="CurseForge">
+    @Zeromaster178
+  </a></div><!-- ===== TITLE ===== --><h1>zero's addons</h1><!-- ===== SEARCH BAR ===== --><input type="text" id="searchInput" placeholder="Search addons..."><!-- ===== ADDON LIST ===== --><div id="addonList">  <!-- ADDON 1 -->  <article class="addon-card">
+    <a href="3d totem.html" class="addon-link">
+      <div class="addon-image">
+        <img src="assets/1_1.jpg" alt="3D Totem Preview">
+      </div>
+      <h2 class="addon-title">zero's 3d totem</h2>
+    </a>
+  </article>  <!-- ADDON 2 -->  <article class="addon-card">
+    <a href="luna.html" class="addon-link">
+    <div class="addon-image">
+      <img src="assets/Luna.jpg" alt="Project Luna Preview">
+    </div>
+    <h2 class="addon-title">project Luna</h2>
+    </a>
+  </article>  <!-- ADDON 3 -->  <article class="addon-card">
+        <a href="katana addon.html" class="addon-link">
+    <div class="addon-image">
+      <img src="assets/katana addon.jpg" alt="Coming Soon Preview">
+    </div>
+    <h2 class="addon-title">katana addon</h2>
+    </a>
+  </article></div><!-- ===== SEARCH SCRIPT ===== --><script>
+  const searchInput = document.getElementById('searchInput');
+  const addonCards = document.querySelectorAll('.addon-card');
+
+  // Filter addon berdasarkan nama
+  searchInput.addEventListener('input', () => {
+    const keyword = searchInput.value.toLowerCase();
+
+    addonCards.forEach(card => {
+      const title = card.querySelector('.addon-title')
+                        .textContent
+                        .toLowerCase();
+
+      card.style.display = title.includes(keyword) ? '' : 'none';
+    });
+  });
+</script><!-- ===== MENU SCRIPT ===== --><script>
+  const menuBtn = document.getElementById("menuBtn");
+  const popup = document.getElementById("popup");
+
+  // Toggle menu
+  menuBtn.addEventListener("click", () => {
+    menuBtn.classList.toggle("active");
+    popup.classList.toggle("show");
+  });
+
+  // Klik luar = nutup menu
+  document.addEventListener("click", (e) => {
+    if (!menuBtn.contains(e.target) && !popup.contains(e.target)) {
+      menuBtn.classList.remove("active");
+      popup.classList.remove("show");
+    }
+  });
+</script></body>
+</html>

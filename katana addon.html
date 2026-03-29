@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>zero's katana addon</title>  <link rel="stylesheet" href="addon.css">
+</head>
+<body><header class="global-header">
+  <button class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <img src="assets/logo.jpg" alt="Logo" class="logo">
+</header><div class="global-popup" id="popup">
+  <a href="#"><img src="assets/ig.png" class="social-icon">@zeromaster_178</a>
+  <a href="#"><img src="assets/tiktok.png" class="social-icon">@zeromaster_178</a>
+  <a href="#"><img src="assets/yt.png" class="social-icon">@zeromaster178</a>
+</div><a href="index.html" class="back">← Back</a>
+
+<main class="addon-detail">  <section class="addon-box"><h1>zero's katana addon</h1>
+
+<span class="badge">Minecraft Bedrock</span>
+
+<p>Bored with vanilla swords? This addon adds 9 katana variants inspired by Japanese blades.</p>
+
+<h2>Katana Variants</h2>
+
+<p><b>Wooden Katana</b></p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_7ef6c359-0d65-4a64-86bd-2de467081063.png" class="addon-image">
+
+<p><b>Stone Katana</b></p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_3208ac2c-45af-45bd-846a-b465603f5458.png" class="addon-image">
+
+<p><b>Iron Katana</b></p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_555b5dd7-75a4-4d43-832c-e7e9e7082514.png" class="addon-image">
+
+<p><b>Golden Katana</b></p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_d89b972c-5312-47c5-b4c0-01ab210e996b.png" class="addon-image">
+
+<p><b>Diamond Katana</b></p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_1a47a5d1-90fb-46c0-8bd8-a82a50d25714.png" class="addon-image">
+
+<p><b>Netherite Katana</b></p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_989424d2-b75c-4bee-828b-650baf0e0dd6.png" class="addon-image">
+
+<h2>Special Weapon</h2>
+
+<p><b>Yamato</b> – has bleeding effect and 3 skills:</p>
+<ul>
+  <li>Judgement Cut – projectile damage over time</li>
+  <li>Dash – forward attack</li>
+  <li>Judgement Cut End – burst AoE damage</li>
+</ul>
+<img src="https://media.forgecdn.net/attachments/description/null/description_911176a5-196b-4090-9f44-5fc652099ef4.png" class="addon-image">
+
+<h2>Items</h2>
+
+<p><b>Heart Container</b> – permanently increases max HP (max 6 uses)</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_135c7925-cbfa-4601-ab4d-f17f622d2986.png" class="addon-image">
+
+<p><b>Samurai Armor</b> – full set gives Resistance II</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_b5bda3db-3dab-4f2c-9932-02a6fb7a7d97.png" class="addon-image">
+
+<h2>Crafting</h2>
+
+<p>Handle</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_a288fca5-d3c2-4b57-a83a-095a227addcf.png" class="addon-image">
+
+<p>Pliers</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_39337fd2-c483-4277-bf84-281500c6f1a8.png" class="addon-image">
+
+<p>Hammer</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_c65a4e70-7109-4b90-b5f4-9844f0cc8597.png" class="addon-image">
+
+<p>Advanced Weaponry Station</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_a3906aeb-2413-42b9-9d3e-b4cc723873a0.png" class="addon-image">
+
+<h2>Extra</h2>
+
+<p>Shrine – spawn Ronin using diamond</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_2889b2ab-22f2-4c04-9658-edfc2f63c69e.png" class="addon-image">
+
+<p>Heart Crystal found in overworld structures</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_b3b1b858-08b4-402f-834d-30aa95c5df22.png" class="addon-image">
+
+<h2>Tutorial</h2>
+<a href="https://youtu.be/U0Rkv2kkopY" target="_blank" class="addon-link">Watch Full Tutorial</a>
+
+  </section>  <section class="addon-box">
+    <h2>Addon Info</h2>
+    <ul>
+      <li><b>Version:</b> 1.0</li>
+      <li><b>Author:</b> Zeromaster178</li>
+      <li><b>Support:</b> 1.21+</li>
+    </ul>
+  </section>  <section class="addon-box">
+    <h2>Download</h2>
+    <a href="#" class="addon-link">Download Addon</a>
+  </section></main><script>
+const menuBtn = document.getElementById("menuBtn");
+const popup = document.getElementById("popup");
+
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("active");
+  popup.classList.toggle("show");
+});
+
+document.addEventListener("click", (e) => {
+  if (!menuBtn.contains(e.target) && !popup.contains(e.target)) {
+    menuBtn.classList.remove("active");
+    popup.classList.remove("show");
+  }
+});
+</script></body>
+</html>

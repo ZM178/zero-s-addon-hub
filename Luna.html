@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Project Luna</title>  <link rel="stylesheet" href="addon.css">
+</head>
+<body><header class="global-header">
+  <button class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>  <img src="assets/logo.jpg" alt="Logo" class="logo">
+</header><div class="global-popup" id="popup">
+  <a href="#" target="_blank"><img src="assets/ig.png" class="social-icon">@zeromaster_178</a>
+  <a href="#" target="_blank"><img src="assets/tiktok.png" class="social-icon">@zeromaster_178</a>
+  <a href="#" target="_blank"><img src="assets/yt.png" class="social-icon">@zeromaster178</a>
+</div><a href="index.html" class="back">← Back</a>
+
+<main class="addon-detail">  <section class="addon-box"><h1>PROJECT LUNA</h1>
+
+<span class="badge">Minecraft Bedrock</span>
+
+<p><b>Warning:</b> This addon is still in development, but already stable. Report bugs if found.</p>
+
+<h2>Features</h2>
+
+<p><b>Vanilla parity:</b> Healing is now equal to Java Edition.</p>
+
+<p><b>Soul system:</b> Killing mobs gives souls (unlimited for now).</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_216c3791-41d7-4450-9d97-d4d7b2dfbca1.jpg" class="addon-image">
+
+<p><b>/unlockskill:</b> Opens skill UI, cost = 100 souls per upgrade.</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_689ffce0-7b40-42f8-997f-38a3e5469e53.jpg" class="addon-image">
+
+<p><b>Passive skills:</b></p>
+<ul>
+  <li>Dash (cooldown 4s → 3s)</li>
+  <li>Health bonus</li>
+</ul>
+
+<h2>Entities</h2>
+
+<p><b>Soul Trader:</b> trades souls.</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_a2e6254a-fd73-4c0c-b5ba-e12e809f0ed8.jpg" class="addon-image">
+
+<p><b>Minotaur:</b> summonable creature.</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_fdffc5e3-bbd8-49f1-94f7-4cbf7b1b6a37.jpg" class="addon-image">
+
+<p><b>Glacial Cuboid:</b> tamable, drops crafting material.</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_8a6143ba-afce-42fd-bfb9-e1c806284a44.jpg" class="addon-image">
+
+<h2>Weapons</h2>
+
+<p><b>Velgryn:</b> slow but high damage.</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_2f40cc41-05cc-4a80-87eb-ed79163c4573.jpg" class="addon-image">
+
+<p><b>Solaris:</b> fast attack speed.</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_af68876c-7373-4b38-a729-5c1c9238e169.jpg" class="addon-image">
+
+<p><b>Ironhorn Cleaver:</b> epic weapon, no skills.</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_0889b925-8e74-4a32-82f1-a260b747d08c.jpg" class="addon-image">
+
+<h2>Armor</h2>
+
+<p><b>Glacial Set:</b> gives speed, stun, and slow effects.</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_0a7dc84f-f266-4905-9f96-c1b903f0b77e.jpg" class="addon-image">
+
+<h2>Structures</h2>
+
+<p><b>Mino Maze:</b> summon Minotaur using magic dust.</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_7cd23697-c528-4a03-9924-72224fa00856.jpg" class="addon-image">
+
+<p><b>Soul Trader House:</b> spawns in multiple biomes.</p>
+<img src="https://media.forgecdn.net/attachments/description/null/description_58fb01c7-7eb6-488c-bd61-163e824f2a0e.jpg" class="addon-image">
+
+<p>Addon will be updated regularly.</p>
+
+  </section>  <section class="addon-box">
+    <h2>Addon Info</h2>
+    <ul>
+      <li><b>Version:</b> 1.0.0 </li>
+      <li><b>Author:</b> Zeromaster178</li>
+      <li><b>Support:</b> 26.10+</li>
+      <li><b>Status:</b> release</li>
+    </ul>
+  </section>  <section class="addon-box">
+    <h2>Download</h2>
+    <a href="#" class="addon-link">Download Addon</a>
+  </section></main><script>
+const menuBtn = document.getElementById("menuBtn");
+const popup = document.getElementById("popup");
+
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("active");
+  popup.classList.toggle("show");
+});
+
+document.addEventListener("click", (e) => {
+  if (!menuBtn.contains(e.target) && !popup.contains(e.target)) {
+    menuBtn.classList.remove("active");
+    popup.classList.remove("show");
+  }
+});
+</script></body>
+</html>
