@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Project Luna</title>  <link rel="stylesheet" href="addon.css">
+</head>
+<body><header class="global-header">
+  <button class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>  <img src="assets/logo.jpg" alt="Logo" class="logo">
+</header><div class="global-popup" id="popup">
+  <a href="#" target="_blank"><img src="assets/ig.png" class="social-icon">@zeromaster_178</a>
+  <a href="#" target="_blank"><img src="assets/tiktok.png" class="social-icon">@zeromaster_178</a>
+  <a href="#" target="_blank"><img src="assets/yt.png" class="social-icon">@zeromaster178</a>
+</div><a href="index.html" class="back">← Back</a>
+
+<main class="addon-detail">  <section class="addon-box"><h1>ZERO REPAIRABLE ANVIL</h1>
+
+<span class="badge">Minecraft Bedrock</span>
+
+<p>this addon is so simple, you can repair your anvils using 1 iron ingot.
+
+how to repair an anvil, crouch whille holding iron ingot, and right click to anvil
+
+yeah, just that. hope you enjoy the addon :).</p>
+
+  </section>  <section class="addon-box">
+    <h2>Addon Info</h2>
+    <ul>
+      <li><b>Version:</b> 1.0.0 </li>
+      <li><b>Author:</b> Zeromaster178</li>
+      <li><b>Support:</b> 26.10+</li>
+      <li><b>Status:</b> release</li>
+    </ul>
+  </section>  <section class="addon-box">
+    <h2>Download</h2>
+    <a href="#" class="addon-link">Download Addon</a>
+  </section></main><script>
+const menuBtn = document.getElementById("menuBtn");
+const popup = document.getElementById("popup");
+
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("active");
+  popup.classList.toggle("show");
+});
+
+document.addEventListener("click", (e) => {
+  if (!menuBtn.contains(e.target) && !popup.contains(e.target)) {
+    menuBtn.classList.remove("active");
+    popup.classList.remove("show");
+  }
+});
+</script></body>
+</html>
