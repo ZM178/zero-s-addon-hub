@@ -6,11 +6,13 @@
 body {
   margin: 0;
   padding: 24px;
-  background: #121212;
+  background: linear-gradient(135deg, #1a0a2e 0%, #16213e 30%, #0f0f2a 60%, #0a0a1e 100%);
   color: #eaeaea;
+  overflow-x: hidden;
+  position: relative;
 }
 
-/* BACK */
+/* GLASS BACK BUTTON */
 .back {
   position: relative;
   top: 28px;
@@ -18,20 +20,21 @@ body {
   margin-bottom: 30px;
   text-decoration: none;
   color: #fff;
-  padding: 8px 14px;
-  background: #161616; /* transparan gelap */
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background 0.2s, color 0.2s, transform 0.15s;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
   font-weight: 500;
 }
 
 .back:hover {
   background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  transform: translateY(-2px); /* efek naik sedikit saat hover */
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
-
 
 /* LAYOUT */
 .addon-detail {
@@ -41,53 +44,60 @@ body {
 
 /* HEADER */
 .addon-header {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .addon-header h1 {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-size: clamp(22px, 4vw, 32px);
 }
 
 .badge {
-  position: relative;
-  top: -8px;
   display: inline-block;
-  padding: 3px 10px;
+  padding: 6px 12px;
   font-size: 12px;
-  border: 1px solid #333;
-  border-radius: 999px;
-  color: #aaa;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  color: #ddd;
+  backdrop-filter: blur(10px);
 }
 
-/* BOX */
+/* GLASS BOX */
 .addon-box {
-  border: 1px solid #2a2a2a;
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 16px;
-  background: #161616;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .addon-box h2 {
   margin-top: 0;
-  font-size: 16px;
+  font-size: 18px;
+  color: #fff;
 }
 
-/* LIST */
 .addon-box ul {
-  padding-left: 18px;
-  margin: 0;
+  padding-left: 20px;
+  margin: 12px 0;
 }
 
 .addon-box li {
-  margin-bottom: 6px;
-  color: #ccc;
+  margin-bottom: 8px;
+  color: #ddd;
 }
 
-/* ===== GLOBAL HEADER ===== */
-.global-header {
-  background: #1e1e1e;
+/* GLOBAL HEADER */
+
+.global-header { 
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,12 +107,7 @@ body {
   border-radius: 14px;
 }
 
-/* LOGO */
-.logo {
-  height: 32px;
-}
-
-/* ===== MENU BUTTON ===== */
+/* MENU BUTTON */
 .menu-btn {
   width: 28px;
   height: 22px;
@@ -118,9 +123,9 @@ body {
   background: #aaa;
   margin: 4px 0;
   transition: 0.3s;
+  border-radius: 2px;
 }
 
-/* ANIMATION TO X */
 .menu-btn.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -131,197 +136,124 @@ body {
 
 .menu-btn.active span:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* ===== POPUP ===== *//* Container logo + username */
-.social-item {
-  display: flex;
-  align-items: center; /* vertical align tengah */
-  gap: 8px; /* jarak antara logo dan teks */
-  margin-bottom: 8px;
-}
-
-/* Logo */
-.global-popup img {
-  width: 32px;  /* ukuran logo */
-  height: 32px;
-  object-fit: contain; /* biar ga gepeng */
-  border-radius: 6px; /* optional biar agak membulat */
-}
-
-/* Username / teks */
-.global-popup span {
-  color: #eaeaea;
-  font-size: 14px;
-}
-
-
-
-
-.global-popup a {
-  text-decoration: none;
-  color: #eaeaea;
-  font-size: 14px;
-}
-
-.global-popup a:hover {
-  color: #fff;
-}
-
-/* SHOW */
-.global-popup.show {
-  display: flex;
-}
-
-/* ===== GLOBAL HEADER ===== */
-.global-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 16px;
-  border-top: 1px solid #2a2a2a;
 }
 
 /* LOGO */
 .logo {
   height: 32px;
+  border-radius: 8px;
 }
 
-/* ===== MENU BUTTON ===== */
-.menu-btn {
-  width: 28px;
-  height: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.menu-btn span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: #aaa;
-  margin: 4px 0;
-  transition: 0.3s;
-}
-
-/* ANIMATION TO X */
-.menu-btn.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-btn.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-btn.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* ===== POPUP ===== */
+/* POPUP - Z-INDEX PALING ATAS */
 .global-popup {
   position: absolute;
   top: 60px;
   left: 16px;
-  background: #161616;
-  border: 1px solid #2a2a2a;
-  border-radius: 10px;
-  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  padding: 16px;
   display: none;
   flex-direction: column;
-  gap: 10px;
-  z-index: 999;
+  gap: 12px;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.global-popup.show {
+  display: flex;
 }
 
 .global-popup a {
   display: flex;
   align-items: center;
   gap: 8px;
-  width: fit-content;
-  max-width: 100%;
   text-decoration: none;
+  color: #eaeaea;
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.global-popup a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.social-icon, .global-popup img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.global-popup span {
   color: #eaeaea;
   font-size: 14px;
 }
 
-
-.global-popup a:hover {
+/* ADDON LINK BUTTON */
+.addon-link {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
+  text-decoration: none;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  margin-top: auto;
 }
 
-.social-icon {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  display: block;
+.addon-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
 }
 
-
-/* SHOW */
-.global-popup.show {
-  display: flex;
-}
-
-
-.global-popup a {
-  width: fit-content;
-  max-width: 100%;
-}
-
-.logo {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  display: block;
-}
+/* IMAGE CONTAINER */
 .addon-image {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #111;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
 }
+
 .addon-img {
-  width: auto;       /* sesuaikan lebar otomatis */
-  height: 32px;      /* batasi tinggi */
-  max-width: 100%;   /* jangan melebihi container */
+  width: auto;
+  height: 32px;
+  max-width: 100%;
   object-fit: contain;
 }
 
-/* Khusus desktop */
 @media (min-width: 768px) {
   .addon-img {
-    height: 24px;    /* lebih enak di desktop */
+    height: 48px;
   }
 }
 
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  body { padding: 16px; }
+  .addon-box { padding: 20px; }
+  .global-header { padding: 12px 16px; }
+}}
 
-
-.addon-image img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.addon-link {
-  display: block;              /* biar full width */
-  width: 100%;                 /* isi lebar card */
-  padding: 12px 16px;          /* space dalam tombol */
-  background-color: #3a3a3a;   /* warna tombol */
-  color: #fff;                 /* teks putih */
-  text-decoration: none;       /* ilangin garis bawah */
-  border-radius: 8px;          /* sudut membulat */
-  text-align: center;          /* teks di tengah */
-  margin-bottom: 8px;          /* spasi antar tombol */
-  transition: background 0.2s;
-}
-
-.addon-link:hover {
-  background-color: #5a5a5a;
-}
-
-
-.addon-link:hover {
-  background-color: #5a5a5a;   /* hover efek */
+@media (min-width: 1200px) {
+  #searchInput {
+    margin: 0 0 24px 0;
+  }
 }
