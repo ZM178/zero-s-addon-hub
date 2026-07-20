@@ -188,8 +188,8 @@ body {
 /* ============ MOON ============ */
 .moon {
   position: fixed;
-  top: 200px;
-  right: 1350px;
+  top: 30%;
+  right: 90%;
   width: 85px;
   height: 85px;
   border-radius: 50%;
