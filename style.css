@@ -232,7 +232,7 @@ body {
   animation: moon-glow 6s ease-in-out infinite;
   transition: background 0.5s ease;
 }
-  body > *:not(.sky-bg):not(.stars-layer):not(.moon) {
+  body > *:not(.sky-bg):not(.stars-layer):not(.moon):not(header) {
     position: relative;
     z-index: 1000;
   }
