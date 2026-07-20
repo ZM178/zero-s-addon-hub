@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Zeromaster178</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              void: "rgb(var(--c-void) / <alpha-value>)",
+              navy: "rgb(var(--c-navy) / <alpha-value>)",
+              indigo: "rgb(var(--c-indigo) / <alpha-value>)",
+              moonc: "rgb(var(--c-moonc) / <alpha-value>)",
+              violet: "rgb(var(--c-violet) / <alpha-value>)",
+              emerald: "rgb(var(--c-emerald) / <alpha-value>)",
+            },
+            fontFamily: {
+              display: ['"Zen-Kaku-Gothic-New"', "sans-serif"],
+              body: ['"Inter"', "sans-serif"],
+              mono: ['"JetBrains-Mono"', "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="font-body text-moonc/90 antialiased">
+    <!-- BACKGROUND LAYERS -->
+    <div class="sky-bg" aria-hidden="true"></div>
+    <div id="stars-layer" class="stars-layer" aria-hidden="true"></div>
+    <div id="clouds-layer" class="clouds-layer" aria-hidden="true"></div>
+
+    <div class="moon" aria-hidden="true">
+      <span class="crater crater-1"></span>
+      <span class="crater crater-2"></span>
+      <span class="crater crater-3"></span>
+    </div>
+
+    <!-- NAVBAR -->
+    <header
+      class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-void/40 border-b border-white/5"
+    >
+      <nav
+        class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4"
+      >
+        <!-- LOGO -->
+        <a
+          href="index.html"
+          class="flex items-center gap-2 font-display text-lg tracking-wide text-moonc"
+        >
+          <img
+            src="assets/logo.jpg"
+            alt="Logo"
+            class="nav-logo-img"
+            draggable="false"
+          />
+
+          Zeromaster178
+        </a>
+
+        <!-- RIGHT SIDE -->
+        <div class="flex items-center gap-6">
+          <!-- BACK LINK -->
+          <a
+            href="index.html"
+            class="font-mono text-xs uppercase tracking-widest text-moonc/60 hover:text-emerald transition-colors"
+          >
+            ← Back
+          </a>
+
+          <!-- THEME TOGGLE -->
+          <button
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle light/dark theme"
+            class="theme-toggle-btn"
+          >
+            <span id="themeIcon">🌙</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top" class="relative z-10 pt-28">
+      <!-- ================= PORTFOLIO FULL LIST ================= -->
+      <section class="section-block pb-32">
+        <div class="max-w-6xl mx-auto px-6">
+          <p
+            class="font-mono text-xs uppercase tracking-[0.3em] text-violet mb-2"
+          >
+            Portfolio
+          </p>
+
+          <h2
+            class="font-display text-2xl sm:text-3xl font-semibold text-moonc mb-8"
+          >
+            Works & Projects
+          </h2>
+
+          <div class="grid-portfolio">
+            <!-- MINOTAUR -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/minotaur.png" alt="Minotaur 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>Minotaur 3D Model</h4>
+
+              <p>One of the bosses in Project Luna.</p>
+            </div>
+
+            <!-- AXE -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/axe.png" alt="Axe 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>Axe</h4>
+
+              <p>Custom weapon model.</p>
+            </div>
+
+            <!-- PHOENIX ARMOR -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/phoenix armor.png" alt="Phoenix Armor 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>Phoenix Armor</h4>
+
+              <p>Custom armor model.</p>
+            </div>
+
+            <!-- SWORD -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/sword.png" alt="Sword 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>Sword</h4>
+
+              <p>Custom weapon model.</p>
+            </div>
+
+            <!-- TRIDENT -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/trident.png" alt="Trident 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>Trident</h4>
+
+              <p>Custom weapon model.</p>
+            </div>
+
+            <!-- SCYTHE -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/schyte.png" alt="Scythe 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>Scythe</h4>
+
+              <p>Custom weapon model.</p>
+            </div>
+
+            <!-- SPEAR -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/spear.png" alt="Spear 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>Spear</h4>
+
+              <p>Custom weapon model.</p>
+            </div>
+
+            <!-- WATCHER -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/watcher.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>Watcher</h4>
+
+              <p>Custom entity model.</p>
+            </div>
+
+            <!-- mino maze -->
+            <div class="grid-card">
+              <span class="tag">World Gen</span>
+
+              <img src="porto/mino-maze.jpeg" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>Minotaur Maze</h4>
+
+              <p>world gen.</p>
+            </div>
+
+            <!-- ronin bunker -->
+            <div class="grid-card">
+              <span class="tag">World Gen</span>
+
+              <img src="porto/ronin-bunker.jpeg" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>Ronin Bunker</h4>
+
+              <p>world gen.</p>
+            </div>
+
+            <!-- enhanced ronin -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/enhanced_ronin.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>forgotten shogun</h4>
+
+              <p>Custom entity model.</p>
+            </div>
+
+            <!-- soul trader house  -->
+            <div class="grid-card">
+              <span class="tag">World gen</span>
+
+              <img src="porto/soultrader-housse.jpeg" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>Watcher</h4>
+
+              <p>Custom entity model.</p>
+            </div>
+
+            <!-- kagetsu -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/kagetsu.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img" />
+
+              <h4>kagetsu</h4>
+
+              <p>Custom entity model.</p>
+            </div>
+
+            <!-- kosetsu -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/kosetsu.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>kosetsu</h4>
+
+              <p>Custom entity model.</p>
+            </div>
+
+            <!-- shrine -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/shrine.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>shrine</h4>
+
+              <p>Custom block model.</p>
+            </div>
+
+            <!-- leggings -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/leggings.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>leggings</h4>
+
+              <p>Custom armor model.</p>
+            </div>
+
+            <!-- glacial cuboid -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/glacier mob.geo (2).png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>glacial cuboid</h4>
+
+              <p>Custom entity model.</p>
+            </div>
+
+                        <!-- gauntlet -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/gauntlet.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>kosetsu</h4>
+
+              <p>Custom weapon model.</p>
+            </div>
+
+                        <!-- bow -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/bow.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>bow</h4>
+
+              <p>Custom entity model.</p>
+            </div>
+
+                        <!-- draq altar -->
+            <div class="grid-card">
+              <span class="tag">world gen</span>
+
+              <img src="porto/draqiel-altar.jpeg" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>draqiel altar</h4>
+
+              <p>world gen.</p>
+            </div>
+
+                        <!-- stat -->
+            <div class="grid-card">
+              <span class="tag">script</span>
+
+              <img src="porto/stat-system.jpeg" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>stat system</h4>
+
+              <p>script api</p>
+            </div>
+
+                        <!-- boots -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/boots.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>boots</h4>
+
+              <p>Custom armor model.</p>
+            </div>
+
+                        <!-- catalyst -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/catalyst.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>catalyst</h4>
+
+              <p>Custom weapon model.</p>
+            </div>
+
+                        <!-- battle axe -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/battle_axe.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>battle axe</h4>
+
+              <p>Custom Weapon Model.</p>
+            </div>
+
+                        <!-- mino spawner -->
+            <div class="grid-card">
+              <span class="tag">3D Model</span>
+
+              <img src="porto/mino spawner.png" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>mino spawner</h4>
+
+              <p>Custom block model.</p>
+            </div>
+
+                        <!-- well -->
+            <div class="grid-card">
+              <span class="tag">World Gen</span>
+
+              <img src="porto/well.jpeg" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>well</h4>
+
+              <p>World Gen.</p>
+            </div>
+
+                      <!-- forging station -->
+            <div class="grid-card">
+              <span class="tag">Blocks And Script</span>
+
+              <img src="porto/forging station.jpeg" alt="Watcher 3D model" loading="lazy" draggable="false" class="lightbox-img"/>
+
+              <h4>forging station</h4>
+
+              <p>crafting station</p>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="relative z-10 text-center py-8 font-mono text-xs text-moonc/30 border-t border-white/5"
+    >
+      © 2026 Zeromaster178
+    </footer>
+<!-- LIGHTBOX -->
+    <div id="lightboxOverlay" class="lightbox-overlay">
+      <button id="lightboxClose" class="lightbox-close" aria-label="Close">✕</button>
+      <img id="lightboxImg" src="" alt="" />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

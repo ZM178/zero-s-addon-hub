@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeromaster178 — Add-On Developer Portfolio</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              void: "rgb(var(--c-void) / <alpha-value>)",
+              navy: "rgb(var(--c-navy) / <alpha-value>)",
+              indigo: "rgb(var(--c-indigo) / <alpha-value>)",
+              moonc: "rgb(var(--c-moonc) / <alpha-value>)",
+              violet: "rgb(var(--c-violet) / <alpha-value>)",
+              emerald: "rgb(var(--c-emerald) / <alpha-value>)",
+            },
+            fontFamily: {
+              display: ['"Zen-Kaku-Gothic-New"', "sans-serif"],
+              body: ['"Inter"', "sans-serif"],
+              mono: ['"JetBrains-Mono"', "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="font-body text-moonc/90 antialiased">
+    <!-- BACKGROUND LAYERS -->
+    <div class="sky-bg" aria-hidden="true"></div>
+    <div id="stars-layer" class="stars-layer" aria-hidden="true"></div>
+    <div id="clouds-layer" class="clouds-layer" aria-hidden="true"></div>
+
+    <div class="moon" aria-hidden="true">
+      <span class="crater crater-1"></span>
+      <span class="crater crater-2"></span>
+      <span class="crater crater-3"></span>
+    </div>
+
+    <!-- NAVBAR -->
+    <header
+      class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-void/40 border-b border-white/5"
+    >
+      <nav
+        class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4"
+      >
+        <!-- LOGO -->
+        <a
+          href="#top"
+          class="flex items-center gap-2 font-display text-lg tracking-wide text-moonc"
+        >
+          <img
+            src="assets/logo.jpg"
+            alt="Logo"
+            class="nav-logo-img"
+            draggable="false"
+          />
+
+          Zeromaster178
+        </a>
+
+        <!-- RIGHT SIDE -->
+        <div class="flex items-center gap-6">
+          <!-- NAV LINKS -->
+          <div
+            class="hidden sm:flex items-center gap-8 font-mono text-xs uppercase tracking-widest text-moonc/60"
+          >
+            <a href="#featured" class="hover:text-emerald transition-colors">
+              Featured
+            </a>
+
+            <a href="#portfolio" class="hover:text-emerald transition-colors">
+              Portfolio
+            </a>
+
+            <a href="#all-addon" class="hover:text-emerald transition-colors">
+              All Add-On
+            </a>
+
+            <a href="#about" class="hover:text-emerald transition-colors">
+              About
+            </a>
+          </div>
+
+          <!-- THEME TOGGLE -->
+          <button
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle light/dark theme"
+            class="theme-toggle-btn"
+          >
+            <span id="themeIcon">🌙</span>
+          </button>
+
+          <!-- MOBILE MENU -->
+          <div id="mobileMenuWrapper" class="relative sm:hidden">
+            <button
+              id="mobileMenuBtn"
+              type="button"
+              class="font-mono text-xs uppercase tracking-widest text-emerald"
+              aria-expanded="false"
+            >
+              Menu <span id="mobileMenuArrow">⌄</span>
+            </button>
+
+            <div id="mobileMenu" class="mobile-menu">
+              <a href="#featured">Featured</a>
+              <a href="#portfolio">Portfolio</a>
+              <a href="#all-addon">All Add-On</a>
+              <a href="#about">About</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top" class="relative z-10 pt-28">
+      <!-- INTRO STRIP -->
+      <section class="hero-section max-w-6xl mx-auto px-6 mb-16">
+        <p
+          class="font-mono text-xs uppercase tracking-[0.3em] text-violet mb-3"
+        >
+          // developer log — clear skies tonight
+        </p>
+
+        <h1
+          class="font-display text-3xl sm:text-5xl font-semibold text-moonc leading-tight max-w-2xl"
+        >
+          Building tiny worlds inside Minecraft, one Add-On at a time.
+        </h1>
+
+        <p class="text-moonc/60 mt-5 max-w-xl leading-relaxed">
+          I'm a Minecraft Bedrock addon creator focused on building custom
+          gameplay experiences, from new weapons and combat systems to mobs,
+          mechanics, and entire worlds. Most of my work comes from experimenting
+          with ideas and turning them into something playable. This portfolio is
+          a collection of the projects I've worked on, the systems I've built,
+          and the things I'm still creating.
+        </p>
+
+        <p class="text-moonc/70 mt-5 max-w-xl leading-relaxed">
+          OPEN FOR COMMISSIONS!
+        </p>
+      </section>
+
+      <!-- ================= FEATURED ADDON ================= -->
+      <section id="featured" class="section-block">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="flex items-end justify-between mb-8 flex-wrap gap-4">
+            <div>
+              <p
+                class="font-mono text-xs uppercase tracking-[0.3em] text-emerald mb-2"
+              >
+                Featured
+              </p>
+
+              <h2
+                class="font-display text-2xl sm:text-3xl font-semibold text-moonc"
+              >
+                Top Picks
+              </h2>
+            </div>
+
+            <div class="flex gap-2">
+              <button data-prev class="carousel-nav-btn" aria-label="Previous">
+                ‹
+              </button>
+
+              <button data-next class="carousel-nav-btn" aria-label="Next">
+                ›
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="featured-carousel"
+          class="carousel-root max-w-6xl mx-auto px-6"
+        >
+          <div data-viewport class="carousel-viewport">
+            <div data-track class="carousel-track">
+              <!-- PROJECT LUNA -->
+              <article class="feature-card">
+                <div class="feature-card-inner">
+                  <div class="feature-visual">
+                    <img
+                      src="assets/luna.jpg"
+                      alt="Project Luna"
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  </div>
+
+                  <div class="feature-copy">
+                    <span class="tag">Add-On · Survival</span>
+
+                    <h3
+                      class="font-display text-2xl font-semibold text-moonc mt-3"
+                    >
+                      Project Luna
+                    </h3>
+
+                    <p class="text-moonc/60 mt-3 leading-relaxed">
+                      Project Luna is a Minecraft Bedrock addon focused on
+                      expanding the gameplay experience through new mechanics,
+                      entities, biomes, weapons, and structures — all while
+                      keeping the vanilla feel intact. From a soul-based trading
+                      system to legendary weapons with unique skills, Luna adds
+                      depth and replayability to your world. Actively developed
+                      and updated regularly, either monthly or weekly depending
+                      on the size of the update.
+                    </p>
+
+                    <a
+                      href="https://www.curseforge.com/minecraft-bedrock/addons/project-luna"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="cta-link"
+                    >
+                      View details →
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- KATANA ADDON -->
+              <article class="feature-card">
+                <div class="feature-card-inner">
+                  <div class="feature-visual">
+                    <img
+                      src="assets/katana addon.jpg"
+                      alt="Katana Addon"
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  </div>
+
+                  <div class="feature-copy">
+                    <span class="tag">Add-On · Weapon System</span>
+
+                    <h3
+                      class="font-display text-2xl font-semibold text-moonc mt-3"
+                    >
+                      Katana Addon
+                    </h3>
+
+                    <p class="text-moonc/60 mt-3 leading-relaxed">
+                      Zero's Katana Addon is a Minecraft Bedrock addon focused
+                      on katana weaponry — starting from a standard katana all
+                      the way up to katanas with extra combat skills.
+                    </p>
+
+                    <a
+                      href="https://www.curseforge.com/minecraft-bedrock/addons/zeros-katana-addon"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="cta-link"
+                    >
+                      View details →
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- REPAIRABLE ANVILS -->
+              <article class="feature-card">
+                <div class="feature-card-inner">
+                  <div class="feature-visual">
+                    <img
+                      src="https://media.forgecdn.net/attachments/1226/663/20250621_152301-png.png"
+                      alt="Repairable Anvils"
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  </div>
+
+                  <div class="feature-copy">
+                    <span class="tag">Script</span>
+
+                    <h3
+                      class="font-display text-2xl font-semibold text-moonc mt-3"
+                    >
+                      Repairable Anvil
+                    </h3>
+
+                    <p class="text-moonc/60 mt-3 leading-relaxed">
+                      This script allows players to repair damaged anvils using
+                      iron ingots.
+                    </p>
+
+                    <a
+                      href="https://www.curseforge.com/minecraft-bedrock/scripts/zeros-repairable-anvils"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="cta-link"
+                    >
+                      View details →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PORTFOLIO ================= -->
+      <section id="portfolio" class="section-block">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="flex items-end justify-between mb-8 flex-wrap gap-4">
+            <div>
+              <p
+                class="font-mono text-xs uppercase tracking-[0.3em] text-violet mb-2"
+              >
+                Portfolio
+              </p>
+
+              <h2
+                class="font-display text-2xl sm:text-3xl font-semibold text-moonc"
+              >
+                Works & Projects
+              </h2>
+            </div>
+
+            <div class="flex gap-2">
+              <button data-prev class="carousel-nav-btn" aria-label="Previous">
+                ‹
+              </button>
+
+              <button data-next class="carousel-nav-btn" aria-label="Next">
+                ›
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          id="portfolio-carousel"
+          class="carousel-root max-w-6xl mx-auto px-6"
+        >
+          <div data-viewport class="carousel-viewport">
+            <div data-track class="carousel-track">
+              <!-- MINOTAUR -->
+              <article class="porto-card">
+                <div class="porto-thumb">
+                  <img
+                    src="porto/minotaur.png"
+                    alt="Minotaur 3D model"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                </div>
+
+                <span class="tag">3D Model</span>
+
+                <h3 class="font-display text-lg font-semibold text-moonc mt-3">
+                  Minotaur 3D Model
+                </h3>
+
+                <p class="text-moonc/55 text-sm mt-2 leading-relaxed">
+                  One of the bosses in Project Luna.
+                </p>
+              </article>
+
+              <!-- AXE -->
+              <article class="porto-card">
+                <div class="porto-thumb">
+                  <img
+                    src="porto/axe.png"
+                    alt="Axe 3D model"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                </div>
+
+                <span class="tag">3D Model</span>
+
+                <h3 class="font-display text-lg font-semibold text-moonc mt-3">
+                  Axe
+                </h3>
+
+                <p class="text-moonc/55 text-sm mt-2 leading-relaxed">
+                  Custom weapon model.
+                </p>
+              </article>
+
+              <!-- PHOENIX ARMOR -->
+              <article class="porto-card">
+                <div class="porto-thumb">
+                  <img
+                    src="porto/phoenix armor.png"
+                    alt="Phoenix Armor 3D model"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                </div>
+
+                <span class="tag">3D Model</span>
+
+                <h3 class="font-display text-lg font-semibold text-moonc mt-3">
+                  Phoenix Armor
+                </h3>
+
+                <p class="text-moonc/55 text-sm mt-2 leading-relaxed">
+                  Custom armor model.
+                </p>
+              </article>
+
+              <!-- SWORD -->
+              <article class="porto-card">
+                <div class="porto-thumb">
+                  <img
+                    src="porto/sword.png"
+                    alt="Sword 3D model"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                </div>
+
+                <span class="tag">3D Model</span>
+
+                <h3 class="font-display text-lg font-semibold text-moonc mt-3">
+                  Sword
+                </h3>
+
+                <p class="text-moonc/55 text-sm mt-2 leading-relaxed">
+                  Custom weapon model.
+                </p>
+              </article>
+
+              <!-- TRIDENT -->
+              <article class="porto-card">
+                <div class="porto-thumb">
+                  <img
+                    src="porto/trident.png"
+                    alt="Trident 3D model"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                </div>
+
+                <span class="tag">3D Model</span>
+
+                <h3 class="font-display text-lg font-semibold text-moonc mt-3">
+                  Trident
+                </h3>
+
+                <p class="text-moonc/55 text-sm mt-2 leading-relaxed">
+                  Custom weapon model.
+                </p>
+              </article>
+
+              <!-- SCYTHE -->
+              <article class="porto-card">
+                <div class="porto-thumb">
+                  <img
+                    src="porto/schyte.png"
+                    alt="Scythe 3D model"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                </div>
+
+                <span class="tag">3D Model</span>
+
+                <h3 class="font-display text-lg font-semibold text-moonc mt-3">
+                  Scythe
+                </h3>
+
+                <p class="text-moonc/55 text-sm mt-2 leading-relaxed">
+                  Custom weapon model.
+                </p>
+              </article>
+
+              <!-- SPEAR -->
+              <article class="porto-card">
+                <div class="porto-thumb">
+                  <img
+                    src="porto/spear.png"
+                    alt="Spear 3D model"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                </div>
+
+                <span class="tag">3D Model</span>
+
+                <h3 class="font-display text-lg font-semibold text-moonc mt-3">
+                  Spear
+                </h3>
+
+                <p class="text-moonc/55 text-sm mt-2 leading-relaxed">
+                  Custom weapon model.
+                </p>
+              </article>
+
+              <!-- WATCHER -->
+              <article class="porto-card">
+                <div class="porto-thumb">
+                  <img
+                    src="porto/watcher.png"
+                    alt="Watcher 3D model"
+                    loading="lazy"
+                    draggable="false"
+                  />
+                </div>
+
+                <span class="tag">3D Model</span>
+
+                <h3 class="font-display text-lg font-semibold text-moonc mt-3">
+                  Watcher
+                </h3>
+
+                <p class="text-moonc/55 text-sm mt-2 leading-relaxed">
+                  Custom entity model.
+                </p>
+              </article>
+            </div>
+          </div>
+         <div class="flex justify-start -mt-1">
+  <a href="porto.html" target="_blank" rel="noopener noreferrer" class="cta-link">
+    View more →
+  </a>
+</div>
+        </div>
+      </section>
+
+      <!-- ================= ALL ADDON ================= -->
+      <section id="all-addon" class="section-block">
+        <div class="max-w-6xl mx-auto px-6">
+          <p
+            class="font-mono text-xs uppercase tracking-[0.3em] text-emerald mb-2"
+          >
+            Catalog
+          </p>
+
+          <h2
+            class="font-display text-2xl sm:text-3xl font-semibold text-moonc mb-8"
+          >
+            All Add-Ons
+          </h2>
+
+          <div class="grid-all">
+            <!-- PROJECT LUNA -->
+            <div class="grid-card">
+              <span class="tag">Progression Survival</span>
+
+              <img src="assets/Luna.jpg" alt="" />
+
+              <h4>Project Luna</h4>
+
+              <p>
+                Project Luna is a Minecraft Bedrock addon focused on expanding
+                the gameplay experience through new mechanics, entities, biomes,
+                weapons, and structures — all while keeping the vanilla feel
+                intact. From a soul-based trading system to legendary weapons
+                with unique skills, Luna adds depth and replayability to your
+                world. Actively developed and updated regularly, either monthly
+                or weekly depending on the size of the update.
+              </p>
+
+              <a
+                href="https://www.curseforge.com/minecraft-bedrock/addons/project-luna"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-link"
+              >
+                View details →
+              </a>
+            </div>
+
+            <!-- KATANA ADDON -->
+            <div class="grid-card">
+              <span class="tag">Survival</span>
+
+              <img src="assets/katana addon.jpg" alt="" />
+
+              <h4>Zero's Katana Addon</h4>
+
+              <p>
+                Are you bored with Vanilla Sword? You've come to the right
+                place. This addon adds 9 new variants of the sword with the name
+                "katana". Yes, you're right — the katana in question is a sword
+                from Japan, so it is different from most sword addons.
+              </p>
+
+              <a
+                href="https://www.curseforge.com/minecraft-bedrock/addons/zeros-katana-addon"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-link"
+              >
+                View details →
+              </a>
+            </div>
+
+            <!-- REPAIRABLE ANVILS -->
+            <div class="grid-card">
+              <span class="tag">Script</span>
+
+              <img
+                src="https://media.forgecdn.net/attachments/1226/663/20250621_152301-png.png"
+                alt=""
+              />
+
+              <h4>Zero's Repairable Anvil</h4>
+
+              <p>
+                This addon is simple: you can repair your anvils using 1 iron
+                ingot. To repair an anvil, crouch while holding an iron ingot and
+                right-click the anvil. That's it. Hope you enjoy the addon :)
+              </p>
+
+              <a
+                href="https://www.curseforge.com/minecraft-bedrock/scripts/zeros-repairable-anvils"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-link"
+              >
+                View details →
+              </a>
+            </div>
+
+            <!-- MORE STRUCTURE -->
+            <div class="grid-card">
+              <span class="tag">Survival</span>
+
+              <img
+                src="https://st2.mcpedl.com/submissions/91515/100/20220822105432_1-520x245.png"
+                alt=""
+              />
+
+              <h4>Zero's More Structure</h4>
+
+              <p>
+                This addon adds more structures to your Minecraft world,
+                creating more variety and exploration opportunities.
+              </p>
+
+              <a
+                href="https://mcpedl.com/zeros-more-structure/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-link"
+              >
+                View details →
+              </a>
+            </div>
+
+            <!-- ELYTRA+ -->
+            <div class="grid-card">
+              <span class="tag">Texture Pack</span>
+
+              <img
+                src="https://st2.mcpedl.com/submissions/54806/102/elytra_1-520x245.png"
+                alt=""
+              />
+
+              <h4>Elytra+</h4>
+
+              <p>
+                Want a different elytra from vanilla Minecraft? This texture
+                pack lets you customize your elytra with many different variants.
+                Small in size, easy to change, and brings more variety to your
+                Minecraft experience.
+              </p>
+
+              <a
+                href="https://mcpedl.com/elytra-plus-pack/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-link"
+              >
+                View details →
+              </a>
+            </div>
+
+            <!-- BLOOD MOON -->
+            <div class="grid-card">
+              <span class="tag">Texture Pack</span>
+
+              <img
+                src="https://st2.mcpedl.com/submissions/61537/100/20210607085307_1-520x245.png"
+                alt=""
+              />
+
+              <h4>Blood Moon</h4>
+
+              <p>
+                Are you bored with the normal Minecraft moon? This texture pack
+                changes the regular moon into a blood moon to give your world a
+                different atmosphere.
+              </p>
+
+              <a
+                href="https://mcpedl.com/blood-moon-resource-pack/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-link"
+              >
+                View details →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ABOUT ME ================= -->
+      <section id="about" class="section-block pb-32">
+        <div
+          class="max-w-6xl mx-auto px-6 grid sm:grid-cols-5 gap-10 items-start"
+        >
+          <div class="sm:col-span-3">
+            <p
+              class="font-mono text-xs uppercase tracking-[0.3em] text-violet mb-2"
+            >
+              About Me
+            </p>
+
+            <h2
+              class="font-display text-2xl sm:text-3xl font-semibold text-moonc mb-5"
+            >
+              A little about me
+            </h2>
+
+            <p class="text-moonc/65 leading-relaxed mb-4 whitespace-pre-line">
+Biography;
+
+Hi, I'm Zero — an 20-year-old self-taught developer from Indonesia.
+
+I'm the creator of Project Luna, a long-term Minecraft Bedrock project focused on expanding the game with new progression systems, quality-of-life improvements, custom gameplay mechanics, and story-driven content.
+
+My main focus is Minecraft Bedrock Add-On development, especially designing and building gameplay systems. I enjoy creating combat mechanics, skill systems, progression systems, custom world generation, and quality-of-life features that make the game feel more engaging.
+
+I work independently across different parts of the Add-On development process, from Script APIs and complex JSON structures to custom entities, models, blocks, items, and gameplay mechanics.
+
+Core Capabilities;
+
+• Combat Mechanics & Gameplay Systems
+• Skill & Progression Systems
+• Custom World Generation
+• Quality-of-Life Features
+• Minecraft Bedrock Add-On Development
+• Custom Entities, Models, Blocks, & Items
+
+OPEN FOR COMMISSIONS!
+
+Feedback & offers? Send me a DM on Discord or Instagram
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-chip">Block</span>
+              <span class="skill-chip">JSON / Entity</span>
+              <span class="skill-chip">Items</span>
+            </div>
+          </div>
+
+          <div class="sm:col-span-2">
+            <div class="about-card">
+              <h4
+                class="font-display text-sm uppercase tracking-widest text-emerald mb-4"
+              >
+                Social
+              </h4>
+
+              <ul class="space-y-3 font-mono text-sm">
+                <li>
+                  <a
+                    href="https://instagram.com/zeromaster_178"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-link"
+                  >
+                    <img
+                      src="assets/ig.png"
+                      class="social-icon"
+                      alt=""
+                      draggable="false"
+                    />
+                    Instagram ↗
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://tiktok.com/@Zeromaster_178"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-link"
+                  >
+                    <img
+                      src="assets/tiktok.png"
+                      class="social-icon"
+                      alt=""
+                      draggable="false"
+                    />
+                    TikTok ↗
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://youtube.com/@zeromaster178"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-link"
+                  >
+                    <img
+                      src="assets/yt.png"
+                      class="social-icon"
+                      alt=""
+                      draggable="false"
+                    />
+                    YouTube ↗
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://mcpedl.com/user/zeromaster-178/"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-link"
+                  >
+                    <img
+                      src="assets/mcpedl.png"
+                      class="social-icon"
+                      alt=""
+                      draggable="false"
+                    />
+                    MCPEDL ↗
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://www.curseforge.com/members/zeromaster178/projects"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-link"
+                  >
+                    <img
+                      src="assets/cf.png"
+                      class="social-icon"
+                      alt=""
+                      draggable="false"
+                    />
+                    CurseForge ↗
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://discord.com/users/841991999732973599"
+                    target="_blank"
+                    rel="noopener"
+                    class="social-link"
+                  >
+                    <img
+                       src="https://imgs.search.brave.com/HQCsYcy5L6k_GP942_IrEubjgeLTOveTqoeXM2JzcW8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/bG9nb2pveS5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjEw/NDIyMDk1MDM3L2Rp/c2NvcmQtbWFzY290/LnBuZw"
+                      class="social-icon"
+                      alt=""
+                      draggable="false"
+                    />
+                    Discord ↗
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="relative z-10 text-center py-8 font-mono text-xs text-moonc/30 border-t border-white/5"
+    >
+      © 2026 Zeromaster178
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

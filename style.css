@@ -1,0 +1,719 @@
+/* ============ THEME TOKENS ============ */
+:root,
+html.dark {
+  --c-void: 5 6 15;
+  --c-navy: 10 14 39;
+  --c-indigo: 19 26 61;
+  --c-moonc: 245 240 225;
+  --c-violet: 139 127 214;
+  --c-emerald: 74 222 128;
+
+  --sky-1: #0a0e27;
+  --sky-2: #0d1230;
+  --sky-3: #0a0e22;
+  --sky-4: #05060f;
+  --nebula-1: rgba(139, 127, 214, 0.16);
+  --nebula-2: rgba(74, 222, 128, 0.06);
+
+  --star-color: rgb(var(--c-moonc));
+  --stars-opacity: 1;
+  --clouds-opacity: 0;
+
+  --celestial-grad: radial-gradient(circle at 35% 30%, #fffbe8 0%, #f5f0e1 35%, #d8d0b0 65%, #b8ae8a 100%);
+  --celestial-glow: 0 0 40px 8px rgba(245, 240, 225, 0.35), 0 0 100px 36px rgba(139, 127, 214, 0.12);
+  --celestial-glow-strong: 0 0 46px 12px rgba(245, 240, 225, 0.45), 0 0 110px 40px rgba(139, 127, 214, 0.18);
+  --crater-opacity: 1;
+
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-border: rgba(245, 240, 225, 0.08);
+}
+
+html.light {
+  --c-void: 255 255 255;
+  --c-navy: 234 240 255;
+  --c-indigo: 219 228 250;
+  --c-moonc: 24 27 46;
+  --c-violet: 108 84 199;
+  --c-emerald: 22 163 74;
+
+  --sky-1: #8fc6f0;
+  --sky-2: #bfe0f7;
+  --sky-3: #fdf3e0;
+  --sky-4: #fffaf0;
+  --nebula-1: rgba(255, 255, 255, 0.35);
+  --nebula-2: rgba(255, 223, 150, 0.20);
+
+  --star-color: rgb(var(--c-moonc));
+  --stars-opacity: 0;
+  --clouds-opacity: 1;
+
+  --celestial-grad: radial-gradient(circle at 35% 30%, #fff9e0 0%, #ffe9a8 40%, #ffcf5c 70%, #f5b93d 100%);
+  --celestial-glow: 0 0 40px 10px rgba(255, 210, 90, 0.45), 0 0 100px 40px rgba(255, 210, 90, 0.18);
+  --celestial-glow-strong: 0 0 46px 14px rgba(255, 210, 90, 0.55), 0 0 110px 46px rgba(255, 210, 90, 0.25);
+  --crater-opacity: 0;
+
+  --surface: rgba(20, 25, 50, 0.04);
+  --surface-border: rgba(20, 25, 50, 0.10);
+}
+
+/* ============ RESET / BASE ============ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--sky-4);
+  min-height: 100vh;
+  z-index: 10;
+  overflow-x: hidden;
+  transition: background 0.4s ease;
+}
+
+/* ============ NIGHT / DAY SKY BACKGROUND ============ */
+.clouds-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: var(--clouds-opacity);
+  transition: opacity 0.6s ease;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 100px;
+  filter: blur(0.3px);
+  animation: cloud-drift linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 60%;
+  height: 160%;
+  top: -60%;
+  left: 12%;
+}
+
+.cloud::after {
+  width: 45%;
+  height: 130%;
+  top: -45%;
+  right: 14%;
+}
+
+@keyframes cloud-drift {
+  0% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(220vw);
+  }
+}
+
+.sky-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  transition: background 0.5s ease;
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 5%, var(--nebula-1), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 10% 85%, var(--nebula-2), transparent 60%),
+    linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 35%, var(--sky-3) 65%, var(--sky-4) 100%);
+}
+
+.stars-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: var(--star-color);
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: twinkle var(--dur, 3s) ease-in-out var(--delay, 0s) infinite;
+  transition: background 0.4s ease;
+}
+
+.stars-layer {
+  opacity: var(--stars-opacity);
+  transition: opacity 0.5s ease;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--star-color);
+  border-radius: 50%;
+  box-shadow: 0 0 6px 1px rgb(var(--c-moonc) / 0.9);
+  animation: shoot 1.4s linear forwards;
+}
+
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  right: 0;
+  width: 130px;
+  height: 1px;
+  background: linear-gradient(90deg, rgb(var(--c-moonc) / 0.9), transparent);
+  transform: rotate(148deg);
+  transform-origin: right center;
+}
+
+@keyframes shoot {
+  0% { transform: translate(0, 0); opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translate(-420px, 260px); opacity: 0; }
+}
+
+/* ============ MOON ============ */
+.moon {
+  position: fixed;
+  top: 200px;
+  right: 1350px;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: var(--celestial-grad);
+  box-shadow: var(--celestial-glow);
+  z-index: 1000;
+  animation: moon-glow 6s ease-in-out infinite;
+  transition: background 0.5s ease;
+}
+
+@keyframes moon-glow {
+  0%, 100% { box-shadow: var(--celestial-glow); }
+  50% { box-shadow: var(--celestial-glow-strong); }
+}
+
+.moon .crater {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(180, 170, 135, 0.55);
+  opacity: var(--crater-opacity);
+  transition: opacity 0.4s ease;
+}
+
+.crater-1 { width: 16px; height: 16px; top: 18px; left: 20px; }
+.crater-2 { width: 10px; height: 10px; top: 44px; left: 46px; opacity: 0.8; }
+.crater-3 { width: 7px; height: 7px; top: 24px; left: 52px; opacity: 0.6; }
+
+@media (max-width: 640px) {
+  .moon {
+  position:fixed ;
+  top: 100px;
+  right: 0px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--celestial-grad);
+  box-shadow: var(--celestial-glow);
+  z-index: 1000;
+  animation: moon-glow 6s ease-in-out infinite;
+  transition: background 0.5s ease;
+}
+  body > *:not(.sky-bg):not(.stars-layer):not(.moon) {
+    position: relative;
+    z-index: 1000;
+  }
+  .crater-1 { width: 10px; height: 10px; top: 12px; left: 14px; }
+  .crater-2 { width: 7px; height: 7px; top: 28px; left: 30px; }
+  .crater-3 { width: 5px; height: 5px; top: 16px; left: 34px; }
+}
+
+/* ============ SECTION SPACING ============ */
+.section-block {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* ============ CAROUSEL CORE ============ */
+.carousel-root {
+  position: relative;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.carousel-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.carousel-track {
+  display: flex;
+  will-change: transform;
+}
+
+.carousel-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  border: 1px solid rgb(var(--c-moonc) / 0.2);
+  background: var(--surface);
+  color: rgb(var(--c-moonc));
+  font-size: 1.1rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items:center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-nav-btn:hover {
+  border-color: rgb(var(--c-emerald));
+  background: rgb(var(--c-emerald) / 0.08);
+  transform: translateY(-1px);
+}
+
+/* ============ FEATURED CARDS ============ */
+.feature-card {
+  flex-shrink: 0;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.feature-card-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(160deg, rgb(var(--c-indigo) / 0.7), rgb(var(--c-void) / 0.7));
+  border: 1px solid var(--surface-border);
+  min-height: 320px;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+@media (min-width: 768px) {
+  .feature-card-inner {
+    grid-template-columns: 1.1fr 1fr;
+    min-height: 280px;
+  }
+}
+
+.feature-visual {
+  min-height: 200px;
+  position: relative;
+  overflow: hidden;
+  background: rgb(var(--c-indigo));
+}
+
+.feature-visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.feature-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.10), transparent 55%);
+}
+
+.feature-copy {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cta-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: rgb(var(--c-emerald));
+  text-decoration: none;
+  width: fit-content;
+}
+
+.cta-link:hover { text-decoration: underline; }
+
+/* ============ TAG ============ */
+.tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgb(var(--c-violet));
+  background: rgb(var(--c-violet) / 0.1);
+  border: 1px solid rgb(var(--c-violet) / 0.25);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  transition: color 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+}
+
+/* ============ PORTFOLIO CARDS ============ */
+/* ============ PORTFOLIO CARDS ============ */
+
+.porto-card {
+  flex: 0 0 calc(100% - 16px);
+  width: calc(100% - 16px);
+
+  box-sizing: border-box;
+
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+
+  padding: 1.5rem;
+
+  min-height: 420px;
+
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease;
+}
+
+/* ============ PORTFOLIO CARDS ============ */
+
+.porto-card {
+  flex: 0 0 100%;
+  width: 100%;
+
+  box-sizing: border-box;
+
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+
+  padding: 1.5rem;
+
+  min-height: 420px;
+}
+
+.porto-card > * + * {
+  margin-top: 0.25rem;
+}
+
+.porto-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.porto-thumb img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.nav-logo-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.social-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: -2px;
+  margin-right: 6px;
+}
+
+/* ============ ALL ADDON GRID ============ */
+.grid-all {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1rem;
+}
+
+.grid-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
+  padding: 1.1rem;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.4s ease;
+}
+
+.grid-card:hover {
+  border-color: rgb(var(--c-emerald) / 0.35);
+  transform: translateY(-2px);
+}
+
+.grid-card h4 {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(var(--c-moonc));
+  margin-top: 0.6rem;
+}
+
+.grid-card p {
+  font-size: 0.82rem;
+  color: rgb(var(--c-moonc) / 0.5);
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+
+/* ============ ABOUT ============ */
+.skill-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: rgb(var(--c-emerald));
+  background: rgb(var(--c-emerald) / 0.08);
+  border: 1px solid rgb(var(--c-emerald) / 0.25);
+  padding: 5px 12px;
+  border-radius: 9999px;
+  transition: color 0.4s ease, background 0.4s ease, border-color 0.4s ease;
+}
+
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+.social-link {
+  color: rgb(var(--c-moonc) / 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.social-link:hover { color: rgb(var(--c-emerald)); }
+
+/* ============ THEME TOGGLE BUTTON ============ */
+.theme-toggle-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  border: 1px solid var(--surface-border);
+  background: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  border-color: rgb(var(--c-emerald) / 0.5);
+  transform: translateY(-1px) rotate(10deg);
+}
+
+/* ============ HERO / INTRO ============ */
+.hero-section {
+  position: relative;
+  z-index: 1000;
+}
+
+/* ============ MOBILE DROPDOWN MENU ============ */
+
+.mobile-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+
+  min-width: 150px;
+  padding: 0.5rem;
+
+  background: rgb(var(--c-void) / 0.95);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+
+  backdrop-filter: blur(16px);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 0.7rem 0.8rem;
+
+  color: rgb(var(--c-moonc) / 0.7);
+  text-decoration: none;
+
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  border-radius: 8px;
+}
+
+.mobile-menu a:hover {
+  color: rgb(var(--c-emerald));
+  background: rgb(var(--c-emerald) / 0.08);
+}
+
+/* ============ PORTFOLIO PAGE GRID (max 3 columns, bigger cards) ============ */
+.grid-portfolio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .grid-portfolio {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid-portfolio {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-card-lg {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.4s ease;
+}
+
+.grid-card-lg:hover {
+  border-color: rgb(var(--c-emerald) / 0.35);
+  transform: translateY(-2px);
+}
+
+.grid-card-lg .porto-thumb-lg {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgb(var(--c-indigo));
+}
+
+.grid-card-lg .porto-thumb-lg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.grid-card-lg h4 {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(var(--c-moonc));
+  margin-top: 0.9rem;
+}
+
+.grid-card-lg p {
+  font-size: 0.9rem;
+  color: rgb(var(--c-moonc) / 0.5);
+  margin-top: 0.4rem;
+  line-height: 1.5;
+}
+
+/* ============ LIGHTBOX ============ */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+  cursor: zoom-in;
+  transition: transform 0.15s ease;
+  user-select: none;
+}
+
+.lightbox-overlay img.is-zoomed {
+  cursor: grab;
+}
+
+.lightbox-overlay img.is-dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(90deg);
+}
+
+.lightbox-img {
+  cursor: zoom-in;
+}
